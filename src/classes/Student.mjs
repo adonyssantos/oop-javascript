@@ -1,3 +1,5 @@
+import Comment from './Comment.mjs';
+
 class Student {
   constructor({
     id,
@@ -23,6 +25,14 @@ class Student {
     };
     this.approvedCourses = approvedCourses;
     this.learningPaths = learningPaths;
+  }
+
+  postComment(comentContent) {
+    const comment = new Comment({
+      content: comentContent,
+      studentName: this.name,
+    });
+    comment.post();
   }
 }
 

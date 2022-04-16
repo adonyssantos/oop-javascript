@@ -4,6 +4,7 @@ import LearningPath from './classes/LearningPath.mjs';
 import FreeStudent from './classes/FreeStudent.mjs';
 import BasicStudent from './classes/BasicStudent.mjs';
 import ExpertStudent from './classes/ExpertStudent.mjs';
+import TeacherStudent from './classes/TeacherStudent.mjs';
 
 // Course Classes
 const introduction = new CourseClass({
@@ -123,14 +124,14 @@ const matias = new ExpertStudent({
   learningPaths: [blockChain],
 });
 
-console.log(adonys);
-console.log(samuel);
-console.log(matias);
+const eljefe = new TeacherStudent({
+  id: 4,
+  name: 'El Jefe',
+  email: 'eljefe@adonys.me',
+  age: 18,
+});
 
-console.log(adonys.approvedCourses);
-
-adonys.approveCourse(html);
-adonys.approveCourse(css);
-adonys.approveCourse(web3);
-
-console.log(adonys.approvedCourses);
+adonys.postComment('I love this course!');
+samuel.postComment('I love this course!');
+matias.postComment('I love this course!');
+eljefe.postComment('I love this course!');
