@@ -1,117 +1,74 @@
-class Classes {
-  constructor({ id, title, description }) {
-    this.id = id;
-    this.title = title;
-    this.description = description;
-  }
-}
+import CourseClass from './classes/CourseClass.mjs';
+import Course from './classes/Course.mjs';
+import LearningPath from './classes/LearningPath.mjs';
+import Student from './classes/Student.mjs';
 
-class Course {
-  constructor({ id, title, classes = [] }) {
-    this.id = id;
-    this._title = title;
-    this.classes = classes;
-  }
+// Course Classes
+const introduction = new CourseClass({
+  id: 1,
+  title: 'Intro to software engineering',
+  description: 'Learn how to build a simple web app',
+});
 
-  get title() {
-    return this._title;
-  }
-
-  set title(value) {
-    if (value.length < 5) {
-      throw new Error('Title must be at least 5 characters long');
-    } else {
-      this._title = value;
-    }
-  }
-}
-
-class LearningPath {
-  constructor({ id, title, description, courses = [] }) {
-    this.id = id;
-    this.title = title;
-    this.description = description;
-    this.courses = courses;
-  }
-}
-
-class Student {
-  constructor({
-    id,
-    name,
-    email,
-    surname,
-    age,
-    instagram = null,
-    facebook = null,
-    twitter = null,
-    approvedCourses = [],
-    learningPaths = [],
-  }) {
-    this.id = id;
-    this.name = name;
-    this.email = email;
-    this.surname = surname;
-    this.age = age;
-    this.socialMedia = {
-      instagram,
-      facebook,
-      twitter,
-    };
-    this.approvedCourses = approvedCourses;
-    this.learningPaths = learningPaths;
-  }
-}
-
-// Cursos
+// Courses
 const html = new Course({
   id: 1,
   title: 'HTML',
+  classes: [introduction],
 });
 
 const css = new Course({
   id: 2,
   title: 'CSS',
+  classes: [introduction],
 });
 
 const js = new Course({
   id: 3,
   title: 'JavaScript',
+  classes: [introduction],
 });
 
 const react = new Course({
   id: 4,
   title: 'React',
+  classes: [introduction],
 });
 
 const python = new Course({
   id: 5,
   title: 'Python',
+  classes: [introduction],
 });
 
 const web3 = new Course({
   id: 6,
   title: 'Web3',
+  classes: [introduction],
 });
 
 const bitcoinCore = new Course({
   id: 7,
   title: 'Bitcoin Core',
+  classes: [introduction],
 });
 
 const blockchain = new Course({
   id: 8,
   title: 'Blockchain',
+  classes: [introduction],
 });
 
 const eth = new Course({
   id: 9,
   title: 'Ethereum',
+  classes: [introduction],
 });
 
 const solidity = new Course({
   id: 10,
   title: 'Solidity',
+  classes: [introduction],
 });
 
 // Learning Paths
