@@ -1,8 +1,10 @@
 class Course {
-  constructor({ id, title, classes = [] }) {
+  constructor({ id, title, classes = [], isFree = false, isBasic = true }) {
     this.id = id;
     this._title = title;
     this.classes = classes;
+    this.isFree = isFree;
+    this.isBasic = isBasic;
   }
 
   get title() {

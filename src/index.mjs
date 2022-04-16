@@ -1,7 +1,9 @@
 import CourseClass from './classes/CourseClass.mjs';
 import Course from './classes/Course.mjs';
 import LearningPath from './classes/LearningPath.mjs';
-import Student from './classes/Student.mjs';
+import FreeStudent from './classes/FreeStudent.mjs';
+import BasicStudent from './classes/BasicStudent.mjs';
+import ExpertStudent from './classes/ExpertStudent.mjs';
 
 // Course Classes
 const introduction = new CourseClass({
@@ -15,30 +17,35 @@ const html = new Course({
   id: 1,
   title: 'HTML',
   classes: [introduction],
+  isFree: true,
 });
 
 const css = new Course({
   id: 2,
   title: 'CSS',
   classes: [introduction],
+  isBasic: true,
 });
 
 const js = new Course({
   id: 3,
   title: 'JavaScript',
   classes: [introduction],
+  isBasic: true,
 });
 
 const react = new Course({
   id: 4,
   title: 'React',
   classes: [introduction],
+  isBasic: true,
 });
 
 const python = new Course({
   id: 5,
   title: 'Python',
   classes: [introduction],
+  isBasic: true,
 });
 
 const web3 = new Course({
@@ -87,7 +94,7 @@ const blockChain = new LearningPath({
 });
 
 // Students
-const adonys = new Student({
+const adonys = new FreeStudent({
   id: 1,
   name: 'Adonys',
   email: 'adonys@adonys.me',
@@ -98,7 +105,7 @@ const adonys = new Student({
   learningPaths: [webDev, blockChain],
 });
 
-const samuel = new Student({
+const samuel = new BasicStudent({
   id: 2,
   name: 'Samuel',
   email: 'samuel@adonys.me',
@@ -107,5 +114,23 @@ const samuel = new Student({
   learningPaths: [webDev],
 });
 
+const matias = new ExpertStudent({
+  id: 3,
+  name: 'Matias',
+  email: 'matias@adonys.me',
+  surname: 'Santos',
+  age: 18,
+  learningPaths: [blockChain],
+});
+
 console.log(adonys);
 console.log(samuel);
+console.log(matias);
+
+console.log(adonys.approvedCourses);
+
+adonys.approveCourse(html);
+adonys.approveCourse(css);
+adonys.approveCourse(web3);
+
+console.log(adonys.approvedCourses);
